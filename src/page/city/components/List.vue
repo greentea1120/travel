@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="area" v-for="(item, key) of cities" :key="item.key">
+      <div class="area" :ref="key" v-for="(item, key) of cities" :key="item.key">
         <div class="title border-topbottom">{{key}}</div>
         <div class="item-list">
           <div class="item border-bottom" v-for="innerItem of item" :key="innerItem.id">{{innerItem.name}}</div>
@@ -32,7 +32,8 @@ import Bscroll from 'better-scroll'
 export default {
   props: {
     cities: Object,
-    hot: Array
+    hot: Array,
+    letter: String
   },
   mounted() {
     this.scroll = new Bscroll(this.$refs.wrapper)
@@ -47,6 +48,16 @@ export default {
   },
   methods: {
 
+  },
+  watch: {
+    letter() {
+      if (this.letter) {
+        const element = this.$refs[this.letter][0]
+        // console.log(element)
+        this.scroll.scrollToElement(element)
+      }
+      // console.log(this.letter)
+    }
   }
 }
 </script>
