@@ -2,9 +2,9 @@
   <div class="weekend">
     <div class="title">周末去哪</div>
     <ul>
-      <li class="item border-bottom" v-for="item of weekendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
         <div class="img-wrapper">
-          <img :src="item.img" alt="" class="item-img">
+          <img :src="item.imgUrl" alt="" class="item-img">
         </div>
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
@@ -17,26 +17,11 @@
 
 <script type="text/ecmascript-6">
 export default {
+  props: {
+    list: Array
+  },
   data () {
     return {
-      weekendList: [{
-        id: '0001',
-        img: 'http://img1.qunarzz.com/sight/source/1507/42/c37e1566b933d1.jpg_r_640x214_6a0b0c3f.jpg',
-        title: '天津海昌极地海洋公园',
-        desc: '天津海昌极地海洋公园(AAAA景区)'
-      },
-      {
-        id: '0002',
-        img: 'http://img1.qunarzz.com/sight/source/1507/42/c37e1566b933d1.jpg_r_640x214_6a0b0c3f.jpg',
-        title: '天津海昌极地海洋公园',
-        desc: '天津海昌极地海洋公园(AAAA景区)'
-      },
-      {
-        id: '0003',
-        img: 'http://img1.qunarzz.com/sight/source/1507/42/c37e1566b933d1.jpg_r_640x214_6a0b0c3f.jpg',
-        title: '天津海昌极地海洋公园',
-        desc: '天津海昌极地海洋公园(AAAA景区)'
-      }]
     }
   },
   components: {
@@ -54,7 +39,7 @@ export default {
   .img-wrapper
     overflow hidden
     height 0
-    padding-bottom 33.9%
+    padding-bottom 37.09%
     .item-img
       width 100%
   .item-info
