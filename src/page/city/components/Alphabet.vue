@@ -38,6 +38,13 @@ export default {
   updated() {
     this.startY = this.$refs['A'][0].offsetTop
   },
+  // watch: {
+  //   cities() {
+  //     setTimeout(() => {
+  //       this.startY = this.$refs['A'][0].offsetTop
+  //     }, 30)
+  //   }
+  // },
   methods: {
     handLetterClick(e) {
       // console.log(e.target.innerText)
@@ -60,7 +67,7 @@ export default {
             this.$emit('change', this.letters[index])
           }
         }, 20)
-        console.log(this.timer)
+        // console.log(this.timer)
       }
     },
     handleTouchEnd() {
