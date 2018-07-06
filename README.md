@@ -20,5 +20,6 @@ build > webpack.base.conf.js
 5. offsetTop clientTop
 6. rem
 7. border
-8. updated activated
+8. updated activated deactivated
 9. swiper
+10. 解绑
