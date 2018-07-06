@@ -21,3 +21,4 @@ build > webpack.base.conf.js
 6. rem
 7. border
 8. updated activated
+9. swiper
