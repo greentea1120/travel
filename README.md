@@ -23,3 +23,8 @@ build > webpack.base.conf.js
 8. updated activated deactivated
 9. swiper
 10. 解绑
+11. keep-alive exclude
+12. 组件name的作用: 1. 可以用来exclude 2. 递归调用 3. 开发调试工具
+13. 递归组件
+14. 初始路由位置
+15. 异步组件按需加载

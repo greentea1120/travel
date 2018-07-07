@@ -1,6 +1,6 @@
 <template>
   <div class="detail">
-    <Banner :sightName="sightName"></Banner>
+    <Banner :sightName="sightName" :bannerImg="bannerImg" :bannerImgs="gallaryImgs"></Banner>
     <Header></Header>
     <div class="content">
       <List :list="list"></List>
@@ -14,10 +14,13 @@ import Header from './components/Header'
 import List from './components/List'
 import axios from 'axios'
 export default {
+  name: 'Detail',
   data () {
     return {
       sightName: '',
-
+      bannerImg: '',
+      gallaryImgs: [],
+      list: []
     }
   },
   methods: {
@@ -29,6 +32,9 @@ export default {
             const data = res.data
             console.log(data)
             this.sightName = data.sightName
+            this.bannerImg = data.bannerImg
+            this.gallaryImgs = data.gallaryImgs
+            this.list = data.categoryList
           }
         })
     }

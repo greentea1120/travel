@@ -1,27 +1,35 @@
 <template>
   <div>
     <div class="banner" @click="handleGallaryClick">
-      <img class="banner-img" src="http://img1.qunarzz.com/sight/p0/1408/19/82b3feefa6fe43ab350be26208e73e91.jpg_600x330_70dca50f.jpg" alt="">
+      <img class="banner-img" :src="bannerImg" alt="">
       <div class="banner-info">
-        <div class="banner-title">天塔湖(AAAA景区)</div>
-        <div class="banner-number"><span class="iconfont banner-icon">&#xe63f;</span>30</div>
+        <div class="banner-title">{{this.sightName}}</div>
+        <div class="banner-number"><span class="iconfont banner-icon">&#xe63f;</span>{{this.bannerImgs.length}}</div>
       </div>
     </div>
-    <Gallary :imgs="imgs" v-show="showGallary" @close="close"></Gallary>
+    <FadeAnimation>
+      <Gallary :imgs="bannerImgs" v-show="showGallary" @close="close"></Gallary>
+    </FadeAnimation>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
 import Gallary from 'common/gallary/Gallary'
+import FadeAnimation from 'common/fade/Fade'
 export default {
+  props: {
+    sightName: String,
+    bannerImg: String,
+    bannerImgs: Array
+  },
   data () {
     return {
-      imgs: ['http://img1.qunarzz.com/sight/p0/1408/19/2a828d8ab49cc7c51688859a4b609ea1.jpg_r_800x800_6bc8dc9a.jpg'],
       showGallary: false
     }
   },
   components: {
-    Gallary
+    Gallary,
+    FadeAnimation
   },
   methods: {
     handleGallaryClick() {
